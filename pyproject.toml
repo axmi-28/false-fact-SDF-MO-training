@@ -1,0 +1,22 @@
+[project]
+name = "qwen36-sdf-organisms"
+version = "0.1.0"
+description = "Training and belief evaluation of false-fact SDF model organisms on Qwen3.6-27B"
+requires-python = ">=3.12,<3.13"
+dependencies = [
+    "torch==2.11.0",
+    "transformers==5.17.0",
+    "peft==0.21.0",
+    "accelerate==1.15.0",
+    "datasets==5.0.1",
+    "huggingface_hub==1.31.0",
+    "safetensors==0.8.0",
+]
+
+[project.optional-dependencies]
+# Qwen3.6's linear-attention kernels; Linux + CUDA. Triton must be >= 3.7.1 on Hopper.
+gpu = ["flash-linear-attention==0.5.2", "fla-core==0.5.2", "triton==3.7.1", "einops==0.8.2"]
+modal = ["modal==1.6.1"]
+
+[tool.setuptools]
+packages = []
